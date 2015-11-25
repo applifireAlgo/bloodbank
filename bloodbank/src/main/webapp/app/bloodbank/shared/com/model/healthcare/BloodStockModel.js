@@ -1,0 +1,35 @@
+Ext.define('Bloodbank.bloodbank.shared.com.model.healthcare.BloodStockModel', {
+     "extend": "Ext.data.Model",
+     "fields": [{
+          "name": "primaryKey",
+          "type": "string",
+          "defaultValue": ""
+     }, {
+          "name": "bloodStockId",
+          "type": "string",
+          "defaultValue": ""
+     }, {
+          "name": "donarid",
+          "reference": "RegisterADonor",
+          "defaultValue": ""
+     }, {
+          "name": "bloodgroupid",
+          "reference": "BloodGroup",
+          "defaultValue": ""
+     }, {
+          "name": "noOfUnits",
+          "type": "int",
+          "defaultValue": ""
+     }, {
+          "name": "versionId",
+          "type": "int",
+          "defaultValue": ""
+     }, {
+          "name": "entityAudit",
+          "reference": "EntityAudit"
+     }, {
+          "name": "primaryDisplay",
+          "type": "string",
+          "defaultValue": ""
+     }]
+});

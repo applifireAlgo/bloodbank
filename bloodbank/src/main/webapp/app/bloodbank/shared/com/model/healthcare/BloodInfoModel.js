@@ -1,0 +1,47 @@
+Ext.define('Bloodbank.bloodbank.shared.com.model.healthcare.BloodInfoModel', {
+     "extend": "Ext.data.Model",
+     "fields": [{
+          "name": "primaryKey",
+          "type": "string",
+          "defaultValue": ""
+     }, {
+          "name": "bInfoId",
+          "type": "string",
+          "defaultValue": ""
+     }, {
+          "name": "collectedDate",
+          "type": "date",
+          "defaultValue": ""
+     }, {
+          "name": "visitid",
+          "reference": "DonorVisit",
+          "defaultValue": ""
+     }, {
+          "name": "expDate",
+          "type": "date",
+          "defaultValue": ""
+     }, {
+          "name": "bloodReport",
+          "type": "string",
+          "defaultValue": ""
+     }, {
+          "name": "isTested",
+          "type": "boolean",
+          "defaultValue": ""
+     }, {
+          "name": "noOfUnits",
+          "type": "int",
+          "defaultValue": ""
+     }, {
+          "name": "versionId",
+          "type": "int",
+          "defaultValue": ""
+     }, {
+          "name": "entityAudit",
+          "reference": "EntityAudit"
+     }, {
+          "name": "primaryDisplay",
+          "type": "string",
+          "defaultValue": ""
+     }]
+});

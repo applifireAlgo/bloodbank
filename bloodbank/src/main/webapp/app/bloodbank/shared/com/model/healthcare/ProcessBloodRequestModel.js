@@ -1,0 +1,35 @@
+Ext.define('Bloodbank.bloodbank.shared.com.model.healthcare.ProcessBloodRequestModel', {
+     "extend": "Ext.data.Model",
+     "fields": [{
+          "name": "primaryKey",
+          "type": "string",
+          "defaultValue": ""
+     }, {
+          "name": "processBloodRequestId",
+          "type": "string",
+          "defaultValue": ""
+     }, {
+          "name": "bloodrequestid",
+          "reference": "BloodRequest",
+          "defaultValue": ""
+     }, {
+          "name": "donorid",
+          "reference": "RegisterADonor",
+          "defaultValue": ""
+     }, {
+          "name": "isComplete",
+          "type": "boolean",
+          "defaultValue": ""
+     }, {
+          "name": "versionId",
+          "type": "int",
+          "defaultValue": ""
+     }, {
+          "name": "entityAudit",
+          "reference": "EntityAudit"
+     }, {
+          "name": "primaryDisplay",
+          "type": "string",
+          "defaultValue": ""
+     }]
+});

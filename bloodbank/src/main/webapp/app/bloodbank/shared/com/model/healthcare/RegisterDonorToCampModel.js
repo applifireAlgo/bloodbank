@@ -1,0 +1,35 @@
+Ext.define('Bloodbank.bloodbank.shared.com.model.healthcare.RegisterDonorToCampModel', {
+     "extend": "Ext.data.Model",
+     "fields": [{
+          "name": "primaryKey",
+          "type": "string",
+          "defaultValue": ""
+     }, {
+          "name": "regId",
+          "type": "string",
+          "defaultValue": ""
+     }, {
+          "name": "campid",
+          "reference": "RegisterACamp",
+          "defaultValue": ""
+     }, {
+          "name": "donorid",
+          "reference": "RegisterADonor",
+          "defaultValue": ""
+     }, {
+          "name": "reqCompleted",
+          "type": "boolean",
+          "defaultValue": ""
+     }, {
+          "name": "versionId",
+          "type": "int",
+          "defaultValue": ""
+     }, {
+          "name": "entityAudit",
+          "reference": "EntityAudit"
+     }, {
+          "name": "primaryDisplay",
+          "type": "string",
+          "defaultValue": ""
+     }]
+});

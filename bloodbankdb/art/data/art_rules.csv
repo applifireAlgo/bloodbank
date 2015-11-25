@@ -1,0 +1,212 @@
+2a2908df-b986-41ec-a445-bf4309839fad#appfire#SaveBloodInfoHistory#appfire#\N#appfire#18D01ABF-F632-496A-B379-FC50EDEAB8C0#appfire#2015-11-19 12:36:57#appfire#18D01ABF-F632-496A-B379-FC50EDEAB8C0#appfire#2015-11-19 12:36:57#appfire#1#appfire#0#appfire#XSWSVD9NMWSNLKYOUS6JXA#appfire#1
+34cfeb9e-2c37-4fdb-8dfe-1277caee78b5#appfire#UpdateBloodHistory#appfire#<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\
+<package name="healthcontext.healthcare" xmlns="http://drools.org/drools-5.2">\
+    <import name="com.app.shared.healthcare.BloodInfo"/>\
+    <rule name="UpdateBloodHistory">\
+        <rule-attribute name="no-loop" value="true"/>\
+        <lhs>\
+            <pattern identifier="entity" object-type="com.app.shared.healthcare.BloodInfo">\
+                <expr>( getCollectedDate() != null )</expr>\
+            </pattern>\
+        </lhs>\
+        <rhs>	\
+	com.app.shared.healthcare.BloodHistory	bloodhistory_3	=	 new com.app.shared.healthcare.BloodHistory();\
+	bloodhistory_3.setBloodInfo(java.lang.String.valueOf(entity.getbInfoId()));\
+	bloodhistory_3.setBloodReport(java.lang.String.valueOf(entity.getBloodReport()));\
+	bloodhistory_3.setCollectedDate(entity.getCollectedDate());\
+	bloodhistory_3.setExpDate(entity.getExpDate());\
+	bloodhistory_3.setIsTested(java.lang.Boolean.valueOf(entity.getIsTested()));\
+	bloodhistory_3.setNoOfUnits(java.lang.Integer.valueOf(entity.getNoOfUnits()));\
+	insert(bloodhistory_3);\
+</rhs>\
+    </rule>\
+    <query name="retrivebloodhistory_3">\
+        <lhs>\
+            <pattern field-name="bloodhistory_3" identifier="bloodhistory_3" object-type="com.app.shared.healthcare.BloodHistory"/>\
+        </lhs>\
+    </query>\
+</package>\
+#appfire#18D01ABF-F632-496A-B379-FC50EDEAB8C0#appfire#2015-11-19 18:05:20#appfire#18D01ABF-F632-496A-B379-FC50EDEAB8C0#appfire#2015-11-19 18:05:20#appfire#1#appfire#1#appfire#XSWSVD9NMWSNLKYOUS6JXA#appfire#1
+4319dc54-ec58-4281-b680-de2868cf2f4f#appfire#AddBloodInfoToStock#appfire#<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\
+<package name="healthcontext.healthcare" xmlns="http://drools.org/drools-5.2">\
+    <import name="com.app.shared.healthcare.BloodRequest"/>\
+    <import name="com.app.shared.healthcontext.StockUpdate"/>\
+    <rule name="AddBloodToStock">\
+        <rule-attribute name="no-loop" value="true"/>\
+        <lhs>\
+            <pattern identifier="bloodreq" object-type="com.app.shared.healthcare.BloodRequest">\
+                <expr>( getBloodRequestId() != null )</expr>\
+            </pattern>\
+            <pattern identifier="stockupdate_1" object-type="com.app.shared.healthcontext.StockUpdate">\
+                <expr>( getDonorId() != null )</expr>\
+            </pattern>\
+        </lhs>\
+        <rhs>	\
+	com.app.shared.healthcare.BloodStock	bloodstock_2	=	 new com.app.shared.healthcare.BloodStock();\
+	bloodstock_2.setBloodGroupId(java.lang.String.valueOf(stockupdate_1.getBloodGroup()));\
+	bloodstock_2.setDonarId(java.lang.String.valueOf(stockupdate_1.getDonorId()));\
+	bloodstock_2.setNoOfUnits(java.lang.Integer.valueOf(stockupdate_1.getNumberofUnits()));\
+	insert(bloodstock_2);\
+</rhs>\
+    </rule>\
+    <query name="retrivebloodstock_2">\
+        <lhs>\
+            <pattern field-name="bloodstock_2" identifier="bloodstock_2" object-type="com.app.shared.healthcare.BloodStock"/>\
+        </lhs>\
+    </query>\
+</package>\
+#appfire#18D01ABF-F632-496A-B379-FC50EDEAB8C0#appfire#2015-11-19 19:22:54#appfire#18D01ABF-F632-496A-B379-FC50EDEAB8C0#appfire#2015-11-19 19:22:54#appfire#1#appfire#1#appfire#XSWSVD9NMWSNLKYOUS6JXA#appfire#1
+51b89c6a-f576-4ac8-9393-c6cc2357db77#appfire#SaveBloodHistory#appfire#\N#appfire#18D01ABF-F632-496A-B379-FC50EDEAB8C0#appfire#2015-11-19 12:54:51#appfire#18D01ABF-F632-496A-B379-FC50EDEAB8C0#appfire#2015-11-19 12:54:51#appfire#1#appfire#0#appfire#XSWSVD9NMWSNLKYOUS6JXA#appfire#1
+656dbd8d-d2bd-476d-8805-5abd1f5eaef9#appfire#ChangeIsTestedFlag#appfire#<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\
+<package name="healthcontext.healthcare" xmlns="http://drools.org/drools-5.2">\
+    <import name="com.app.shared.healthcare.BloodInfo"/>\
+    <rule name="changeFlag">\
+        <rule-attribute name="no-loop" value="true"/>\
+        <lhs>\
+            <pattern identifier="bloodinfo_5" object-type="com.app.shared.healthcare.BloodInfo">\
+                <expr>( getbInfoId() != null )</expr>\
+            </pattern>\
+        </lhs>\
+        <rhs>	\
+	bloodinfo_5.setIsTested(java.lang.Boolean.valueOf(1));\
+	update(bloodinfo_5);\
+</rhs>\
+    </rule>\
+    <query name="retrivebloodinfo_5">\
+        <lhs>\
+            <pattern field-name="bloodinfo_5" identifier="bloodinfo_5" object-type="com.app.shared.healthcare.BloodInfo"/>\
+        </lhs>\
+    </query>\
+</package>\
+#appfire#18D01ABF-F632-496A-B379-FC50EDEAB8C0#appfire#2015-11-19 18:18:31#appfire#18D01ABF-F632-496A-B379-FC50EDEAB8C0#appfire#2015-11-19 18:18:31#appfire#1#appfire#1#appfire#XSWSVD9NMWSNLKYOUS6JXA#appfire#1
+8662de14-016c-449e-8d36-9e854061108f#appfire#SaveBloodHistory#appfire#<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\
+<package name="healthcontext.healthcare" xmlns="http://drools.org/drools-5.2">\
+    <import name="com.app.shared.healthcare.BloodInfo"/>\
+    <rule name="SaveBloodHistory">\
+        <rule-attribute name="no-loop" value="true"/>\
+        <lhs>\
+            <pattern identifier="bloodinfo_28" object-type="com.app.shared.healthcare.BloodInfo">\
+                <expr>( getbInfoId() != null )</expr>\
+            </pattern>\
+        </lhs>\
+        <rhs>	\
+	com.app.shared.healthcare.BloodHistory	bloodhistory_1	=	 new com.app.shared.healthcare.BloodHistory();\
+	bloodhistory_1.setBloodInfo(java.lang.String.valueOf(bloodinfo_28.getbInfoId()));\
+	bloodhistory_1.setBloodReport(java.lang.String.valueOf(bloodinfo_28.getBloodReport()));\
+	bloodhistory_1.setCollectedDate(bloodinfo_28.getCollectedDate());\
+	bloodhistory_1.setExpDate(bloodinfo_28.getExpDate());\
+	bloodhistory_1.setIsTested(java.lang.Boolean.valueOf(bloodinfo_28.getIsTested()));\
+	bloodhistory_1.setNoOfUnits(java.lang.Integer.valueOf(bloodinfo_28.getNoOfUnits()));\
+	insert(bloodhistory_1);\
+</rhs>\
+    </rule>\
+    <query name="retrivebloodhistory_1">\
+        <lhs>\
+            <pattern field-name="bloodhistory_1" identifier="bloodhistory_1" object-type="com.app.shared.healthcare.BloodHistory"/>\
+        </lhs>\
+    </query>\
+</package>\
+#appfire#18D01ABF-F632-496A-B379-FC50EDEAB8C0#appfire#2015-11-19 17:58:28#appfire#18D01ABF-F632-496A-B379-FC50EDEAB8C0#appfire#2015-11-19 17:58:28#appfire#1#appfire#1#appfire#XSWSVD9NMWSNLKYOUS6JXA#appfire#1
+aa20888c-1293-41c5-8e8f-19b291853459#appfire#findByBloodGroup#appfire#<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\
+<package name="healthcontext.healthcare" xmlns="http://drools.org/drools-5.2"/>\
+#appfire#18D01ABF-F632-496A-B379-FC50EDEAB8C0#appfire#2015-11-19 15:48:00#appfire#18D01ABF-F632-496A-B379-FC50EDEAB8C0#appfire#2015-11-19 15:48:00#appfire#1#appfire#1#appfire#XSWSVD9NMWSNLKYOUS6JXA#appfire#1
+bc1f3709-050d-45b5-ba5f-cef9d0d8d85d#appfire#ClinicalAndBloodInfo#appfire#<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\
+<package name="healthcontext.healthcare" xmlns="http://drools.org/drools-5.2">\
+    <import name="com.app.shared.healthcare.DonorVisit"/>\
+    <import name="com.app.shared.healthcare.ClinicalInfo"/>\
+    <rule name="subClinicalAndBloodInfo">\
+        <rule-attribute name="no-loop" value="true"/>\
+        <lhs>\
+            <pattern identifier="donorvisit_0" object-type="com.app.shared.healthcare.DonorVisit">\
+                <expr>( getDonationType() != null )</expr>\
+            </pattern>\
+            <pattern identifier="clinicalInfo" object-type="com.app.shared.healthcare.ClinicalInfo">\
+                <expr>( getHeight() != null )</expr>\
+                <from>\
+                    <expression>donorvisit_0.clinicalInfo</expression>\
+                </from>\
+            </pattern>\
+        </lhs>\
+        <rhs>	\
+	com.app.shared.healthcare.BloodInfo	bloodinfo_1	=	 new com.app.shared.healthcare.BloodInfo();\
+	bloodinfo_1.setBloodReport(java.lang.String.valueOf(null));\
+	bloodinfo_1.setCollectedDate(new java.sql.Date(java.util.Calendar.getInstance().getTime().getTime()));\
+	bloodinfo_1.setExpDate(new java.sql.Date(java.util.Calendar.getInstance().getTime().getTime()) + 1000000);\
+	bloodinfo_1.setIsTested(java.lang.Boolean.valueOf(0));\
+	bloodinfo_1.setVisitId(java.lang.String.valueOf(donorvisit_0.getVisitId()));\
+	insert(bloodinfo_1);\
+</rhs>\
+    </rule>\
+    <query name="retrivebloodinfo_1">\
+        <lhs>\
+            <pattern field-name="bloodinfo_1" identifier="bloodinfo_1" object-type="com.app.shared.healthcare.BloodInfo"/>\
+        </lhs>\
+    </query>\
+</package>\
+#appfire#18D01ABF-F632-496A-B379-FC50EDEAB8C0#appfire#2015-11-19 00:48:08#appfire#18D01ABF-F632-496A-B379-FC50EDEAB8C0#appfire#2015-11-19 00:48:08#appfire#1#appfire#1#appfire#XSWSVD9NMWSNLKYOUS6JXA#appfire#1
+e7b681f4-cd7d-4112-935f-cab85f7626ca#appfire#BloodHistorySave#appfire#<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\
+<package name="healthcontext.healthcare" xmlns="http://drools.org/drools-5.2">\
+    <import name="com.app.shared.healthcare.BloodInfo"/>\
+    <import name="com.app.shared.healthcare.DonorVisit"/>\
+    <import name="com.app.shared.healthcare.ClinicalInfo"/>\
+    <import name="com.app.shared.healthcontext.FetchBloodGroup"/>\
+    <rule name="BloodHistorySave">\
+        <rule-attribute name="no-loop" value="true"/>\
+        <lhs>\
+            <pattern identifier="bloodinfo_7" object-type="com.app.shared.healthcare.BloodInfo">\
+                <expr>( getbInfoId() != null )</expr>\
+            </pattern>\
+            <pattern identifier="donorvisit_8" object-type="com.app.shared.healthcare.DonorVisit">\
+                <expr>( getVisitId() != null )</expr>\
+            </pattern>\
+            <pattern identifier="clinicalInfo" object-type="com.app.shared.healthcare.ClinicalInfo">\
+                <expr>( getdVisitId() != null )</expr>\
+                <from>\
+                    <expression>donorvisit_8.clinicalInfo</expression>\
+                </from>\
+            </pattern>\
+            <pattern identifier="fetchbloodgroup_21" object-type="com.app.shared.healthcontext.FetchBloodGroup">\
+                <expr>( getBloodGroup() != null )</expr>\
+            </pattern>\
+        </lhs>\
+        <rhs>	\
+	com.app.shared.healthcare.BloodHistory	bloodhistory_9	=	 new com.app.shared.healthcare.BloodHistory();\
+	bloodhistory_9.setBloodInfo(java.lang.String.valueOf(bloodinfo_7.getbInfoId()));\
+	bloodhistory_9.setBloodReport(java.lang.String.valueOf(bloodinfo_7.getBloodReport()));\
+	bloodhistory_9.setCollectedDate(bloodinfo_7.getCollectedDate());\
+	bloodhistory_9.setExpDate(bloodinfo_7.getExpDate());\
+	bloodhistory_9.setIsTested(java.lang.Boolean.valueOf(bloodinfo_7.getIsTested()));\
+	bloodhistory_9.setNoOfUnits(java.lang.Integer.valueOf(bloodinfo_7.getNoOfUnits()));\
+	bloodhistory_9.setBp(java.lang.String.valueOf(null));\
+	bloodhistory_9.setHeight(java.lang.String.valueOf(null));\
+	bloodhistory_9.setPulse(java.lang.String.valueOf(null));\
+	bloodhistory_9.setTemp(java.lang.String.valueOf(null));\
+	bloodhistory_9.setUnitsOfBlood(java.lang.Integer.valueOf(0));\
+	bloodhistory_9.setWeight(java.lang.String.valueOf(null));\
+	bloodhistory_9.setClinicalInfo(java.lang.String.valueOf(null));\
+	insert(bloodhistory_9);\
+	\
+	com.app.shared.healthcare.BloodStock	bloodstock_22	=	 new com.app.shared.healthcare.BloodStock();\
+	bloodstock_22.setBloodGroupId(java.lang.String.valueOf(fetchbloodgroup_21.getBloodGroup()));\
+	bloodstock_22.setDonarId(java.lang.String.valueOf(donorvisit_8.getDonorId()));\
+	bloodstock_22.setNoOfUnits(java.lang.Integer.valueOf(bloodinfo_7.getNoOfUnits()));\
+	insert(bloodstock_22);\
+</rhs>\
+    </rule>\
+    <query name="retrivebloodhistory_9">\
+        <lhs>\
+            <pattern field-name="bloodhistory_9" identifier="bloodhistory_9" object-type="com.app.shared.healthcare.BloodHistory"/>\
+        </lhs>\
+    </query>\
+    <query name="retrivebloodinfo_7">\
+        <lhs>\
+            <pattern field-name="bloodinfo_7" identifier="bloodinfo_7" object-type="com.app.shared.healthcare.BloodInfo"/>\
+        </lhs>\
+    </query>\
+    <query name="retrivebloodstock_22">\
+        <lhs>\
+            <pattern field-name="bloodstock_22" identifier="bloodstock_22" object-type="com.app.shared.healthcare.BloodStock"/>\
+        </lhs>\
+    </query>\
+</package>\
+#appfire#18D01ABF-F632-496A-B379-FC50EDEAB8C0#appfire#2015-11-19 13:03:05#appfire#18D01ABF-F632-496A-B379-FC50EDEAB8C0#appfire#2015-11-19 13:03:05#appfire#1#appfire#0#appfire#XSWSVD9NMWSNLKYOUS6JXA#appfire#1

@@ -1,0 +1,3 @@
+
+DROP DATABASE IF EXISTS `bloodbank`;
+CREATE DATABASE `bloodbank`;
